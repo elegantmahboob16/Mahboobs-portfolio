@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mahboob's DevOps Engineer portfolio. AWS, Terraform, Jenkins, Docker and Kubernetes.">
+<title>Mahboob | DevOps Engineer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --bg:#080d18;
+ --surface:#111e30;
+ --text:#edf4ff;
+ --muted:#a2b1c6;
+ --accent:#36d6c3;
+ --blue:#659cff;
+ --border:#26364b;
+}
+
+* {margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+
+body {
+ background:var(--bg);
+ color:var(--text);
+ font-family:Inter,sans-serif;
+ line-height:1.7;
+}
+
+a {text-decoration:none;color:inherit}
+.container {width:min(1100px,90%);margin:auto}
+
+header {
+ position:sticky;top:0;z-index:10;
+ background:rgba(8,13,24,.94);
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid var(--border);
+}
+
+nav {
+ height:75px;display:flex;align-items:center;
+ justify-content:space-between;
+}
+
+.logo {font-size:22px;font-weight:800;color:var(--accent)}
+
+.nav-links {display:flex;gap:25px;list-style:none}
+.nav-links a {font-size:13px;color:var(--muted)}
+.nav-links a:hover {color:var(--accent)}
+
+.hero {
+ min-height:620px;
+ display:grid;
+ grid-template-columns:1.2fr .8fr;
+ align-items:center;
+ gap:40px;
+ padding:80px 0;
+}
+
+.tag {
+ display:inline-block;
+ color:var(--accent);
+ background:#102c32;
+ border:1px solid #235a57;
+ border-radius:30px;
+ padding:6px 13px;
+ font-size:11px;
+ margin-bottom:25px;
+}
+
+h1 {font-size:clamp(38px,6vw,65px);line-height:1.15;letter-spacing:-2px}
+h1 span {color:var(--accent)}
+
+.hero p {color:var(--muted);margin:22px 0;max-width:550px}
+
+.buttons {display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+
+.btn {
+ display:inline-block;padding:11px 20px;
+ border-radius:7px;font-size:13px;font-weight:700;
+ transition:.2s;
+}
+
+.btn:hover {transform:translateY(-3px)}
+.primary {background:var(--accent);color:#07151a}
+.secondary {border:1px solid var(--border);color:var(--text)}
+
+.terminal {
+ background:#0e192a;border:1px solid var(--border);
+ border-radius:12px;overflow:hidden;
+ font:12px/2.2 'JetBrains Mono',monospace;
+ box-shadow:0 20px 60px #0005;
+}
+
+.terminal-head {background:#19283d;padding:12px;color:var(--muted)}
+.dot {display:inline-block;width:9px;height:9px;border-radius:50%;background:#ff6868;margin-right:5px}
+.dot:nth-child(2){background:#f6c75d}
+.dot:nth-child(3){background:#4dd69b}
+.terminal-body {padding:23px;overflow-wrap:anywhere}
+.green {color:var(--accent)}
+.blue {color:var(--blue)}
+
+section {padding:80px 0;border-top:1px solid #202c40}
+.section-title {font-size:30px;margin-bottom:8px}
+.section-subtitle {color:var(--muted);margin-bottom:30px;font-size:14px}
+
+.about-text {max-width:850px;color:var(--muted)}
+
+.grid {
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:17px;
+}
+
+.card {
+ background:var(--surface);
+ border:1px solid var(--border);
+ border-radius:11px;
+ padding:23px;
+ transition:.25s;
+}
+
+.card:hover {transform:translateY(-5px);border-color:var(--accent)}
+.card h3 {font-size:16px;margin:10px 0}
+.card p {font-size:13px;color:var(--muted)}
+.skill-icon {font-size:27px;margin-bottom:8px}
+
+.project-label {
+ color:var(--accent);
+ font-size:10px;
+ letter-spacing:1px;
+}
+
+.project-link {
+ display:inline-block;
+ margin-top:17px;
+ color:var(--accent);
+ font-size:13px;
+ font-weight:600;
+}
+
+.timeline {border-left:2px solid var(--accent);padding-left:25px;margin-left:8px}
+.timeline-item {margin-bottom:28px}
+.timeline-item h3 {font-size:17px}
+.timeline-item p {font-size:13px;color:var(--muted)}
+
+.contact {text-align:center}
+.contact p {color:var(--muted);max-width:600px;margin:15px auto}
+
+footer {
+ padding:25px 0;
+ border-top:1px solid var(--border);
+ text-align:center;
+ color:var(--muted);
+ font-size:12px;
+}
+
+@media(max-width:750px) {
+ .hero {grid-template-columns:1fr;padding:60px 0}
+ .grid {grid-template-columns:repeat(2,1fr)}
+ .nav-links {gap:12px}
+ .nav-links a {font-size:11px}
+}
+
+@media(max-width:480px) {
+ .grid {grid-template-columns:1fr}
+ .logo {font-size:18px}
+ .nav-links {gap:9px}
+ .nav-links a {font-size:10px}
+ .section-title {font-size:25px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="container">
+<a href="#home" class="logo">Mahboob.dev</a>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#journey">Journey</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<main class="container">
+
+<section class="hero" id="home" style="border:0">
+
+<div>
+<span class="tag">● BUILDING • LEARNING • AUTOMATING</span>
+
+<h1>Hi, I'm Mahboob.<br><span>DevOps Engineer</span></h1>
+
+<p>
+I'm starting my DevOps learning journey through hands-on projects.
+Exploring cloud infrastructure, automation, CI/CD pipelines,
+containerization and Kubernetes.
+</p>
+
+<div class="buttons">
+<a href="#projects" class="btn primary">Explore Projects ↗</a>
+<a href="https://github.com/elegantmahboob16"
+target="_blank" rel="noopener noreferrer" class="btn secondary">GitHub Profile ↗</a>
+</div>
+</div>
+
+<div class="terminal">
+<div class="terminal-head">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+&nbsp; mahboob@devops:~
+</div>
+
+<div class="terminal-body">
+<span class="green">$</span> whoami<br>
+<span class="blue">DevOps Engineer in Progress</span><br>
+<span class="green">$</span> skills --list<br>
+AWS | Terraform | Linux<br>
+Git | Jenkins | Docker<br>
+Kubernetes | CI/CD<br>
+<span class="green">$</span> current-focus<br>
+Cloud Infrastructure Automation<br>
+<span class="green">$</span> status<br>
+<span class="green">Learning and Building...</span><br>
+<span class="green">$</span> _
+</div>
+</div>
+
+</section>
+
+<section id="about">
+<h2 class="section-title">About Me</h2>
+<p class="section-subtitle">My DevOps journey</p>
+
+<p class="about-text">
+I'm an aspiring DevOps Engineer passionate about cloud computing,
+infrastructure automation and modern deployment practices.
+
+I'm developing practical skills in AWS, Terraform, Linux, Git,
+Jenkins, Docker and Kubernetes through hands-on projects.
+
+My goal is to understand how real-world applications are built,
+deployed, automated and maintained in cloud environments.
+
+I believe in learning by building, solving problems and continuously
+improving my technical skills.
+</p>
+</section>
+
+<section id="skills">
+<h2 class="section-title">Technical Skills</h2>
+<p class="section-subtitle">Tools and technologies I'm learning and using</p>
+
+<div class="grid">
+
+<div class="card"><div class="skill-icon">🐧</div><h3>Linux</h3><p>Linux commands, file systems, permissions and server management.</p></div>
+
+<div class="card"><div class="skill-icon">🔧</div><h3>Git & GitHub</h3><p>Version control, repositories, branching and collaboration.</p></div>
+
+<div class="card"><div class="skill-icon">☁️</div><h3>AWS</h3><p>EC2, S3, VPC, IAM and cloud infrastructure.</p></div>
+
+<div class="card"><div class="skill-icon">🏗️</div><h3>Terraform</h3><p>Infrastructure as Code, modules and state management.</p></div>
+
+<div class="card"><div class="skill-icon">⚙️</div><h3>Jenkins</h3><p>CI/CD pipelines and deployment automation.</p></div>
+
+<div class="card"><div class="skill-icon">🐳</div><h3>Docker</h3><p>Containerization, images and application environments.</p></div>
+
+<div class="card"><div class="skill-icon">☸️</div><h3>Kubernetes</h3><p>Pods, deployments, services and cluster concepts.</p></div>
+
+<div class="card"><div class="skill-icon">📜</div><h3>Shell Scripting</h3><p>Bash scripting and Linux task automation.</p></div>
+
+<div class="card"><div class="skill-icon">🔄</div><h3>CI/CD</h3><p>Continuous integration and automated delivery.</p></div>
+
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title">Featured Projects</h2>
+<p class="section-subtitle">Learning through real-world implementation</p>
+
+<div class="grid">
+
+<div class="card">
+<span class="project-label">INFRASTRUCTURE AS CODE</span>
+<h3>AWS Infrastructure with Terraform</h3>
+<p>
+Building modular AWS infrastructure using Terraform,
+including networking, EC2, security groups and S3 remote state.
+</p>
+<a class="project-link"
+href="https://github.com/elegantmahboob16/blood-donor-infrastructure"
+target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+</div>
+
+<div class="card">
+<span class="project-label">CI/CD AUTOMATION</span>
+<h3>Jenkins CI/CD Pipeline</h3>
+<p>
+Working on Jenkins automation to connect source code,
+infrastructure workflows and deployment stages.
+</p>
+<a class="project-link"
+href="https://github.com/elegantmahboob16"
+target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+</div>
+
+<div class="card">
+<span class="project-label">CONTAINER ORCHESTRATION</span>
+<h3>Kubernetes Deployment</h3>
+<p>
+Exploring Kubernetes deployments, services and cluster
+management through practical learning.
+</p>
+<a class="project-link"
+href="https://github.com/elegantmahboob16"
+target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+</div>
+
+</div>
+</section>
+
+<section id="journey">
+<h2 class="section-title">My Journey</h2>
+<p class="section-subtitle">Education and professional development</p>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>DevOps Internship – TalentCogent</h3>
+<p>August 2026 – Present</p>
+<p>Developing practical knowledge of DevOps technologies and workflows.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Bachelor of Business Administration (BBA)</h3>
+<p>Tapasya Degree College | 2025</p>
+<p>Academic score: 75.5%</p>
+</div>
+
+<div class="timeline-item">
+<h3>DevOps & Cloud Learning Journey</h3>
+<p>Hands-on learning</p>
+<p>Learning AWS, Linux, Terraform, Jenkins, Docker and Kubernetes.</p>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2 class="section-title">Let's Connect</h2>
+<p>
+I'm continuously learning and building projects in DevOps and cloud
+engineering. Let's connect and grow together.
+</p>
+
+<div class="buttons" style="justify-content:center">
+<a class="btn primary"
+href="https://github.com/elegantmahboob16"
+target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+
+<a class="btn secondary"
+href="https://www.linkedin.com/"
+target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+</div>
+</section>
+
+</main>
+
+<footer>
+© <span id="year"></span> Mahboob. Built with HTML, CSS & JavaScript.
+<br>Learning today. Automating tomorrow.
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
